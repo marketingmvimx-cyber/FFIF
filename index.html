@@ -7,7 +7,7 @@
 <style>
   :root {
     --blue: #003087;
-    --light-blue: #E8F0F7;
+    --light-blue: #252a5a;
     --red: #C8102E;
     --gold: #D4A017;
     --dark: #1A1A2E;
@@ -418,50 +418,50 @@
     </div>
     <div class="step-body">
       <div class="options-grid cols-2">
-        <button class="option-btn" onclick="selectOption('sector','alimentos',this)">
+        <button type="button" class="option-btn" onclick="selectOption('sector','restaurantes',this)">
           <span class="icon">🍔</span>
           <div><div class="label">Alimentos y Bebidas</div><div class="sublabel">Restaurantes, comida rápida, cafeterías</div></div>
         </button>
-        <button class="option-btn" onclick="selectOption('sector','salud',this)">
+        <button type="button" class="option-btn" onclick="selectOption('sector','salud',this)">
           <span class="icon">💊</span>
           <div><div class="label">Salud y Bienestar</div><div class="sublabel">Clínicas, farmacias, servicios médicos</div></div>
         </button>
-        <button class="option-btn" onclick="selectOption('sector','belleza',this)">
+        <button type="button" class="option-btn" onclick="selectOption('sector','belleza',this)">
           <span class="icon">💄</span>
           <div><div class="label">Belleza y Estética</div><div class="sublabel">Salones, spas, depilación, nail bar</div></div>
         </button>
-        <button class="option-btn" onclick="selectOption('sector','educacion',this)">
+        <button type="button" class="option-btn" onclick="selectOption('sector','educacion',this)">
           <span class="icon">📚</span>
           <div><div class="label">Educación y Coaching</div><div class="sublabel">Escuelas, capacitación, idiomas</div></div>
         </button>
-        <button class="option-btn" onclick="selectOption('sector','automotriz',this)">
+        <button type="button" class="option-btn" onclick="selectOption('sector','automotriz',this)">
           <span class="icon">🔧</span>
           <div><div class="label">Automotriz</div><div class="sublabel">Talleres, lubricentros, autolavado</div></div>
         </button>
-        <button class="option-btn" onclick="selectOption('sector','mensajeria',this)">
+        <button type="button" class="option-btn" onclick="selectOption('sector','paqueteria',this)">
           <span class="icon">📦</span>
           <div><div class="label">Mensajería y Logística</div><div class="sublabel">Paquetería, envíos, última milla</div></div>
         </button>
-        <button class="option-btn" onclick="selectOption('sector','inmobiliaria',this)">
+        <button type="button" class="option-btn" onclick="selectOption('sector','bienes raices',this)">
           <span class="icon">🏠</span>
           <div><div class="label">Bienes Raíces</div><div class="sublabel">Inmobiliarias, rentas, inversión</div></div>
         </button>
-        <button class="option-btn" onclick="selectOption('sector','retail',this)">
+        <button type="button" class="option-btn" onclick="selectOption('sector','comercio',this)">
           <span class="icon">🛍️</span>
           <div><div class="label">Comercio Especializado</div><div class="sublabel">Tiendas, moda, productos específicos</div></div>
         </button>
-        <button class="option-btn" onclick="selectOption('sector','tecnologia',this)">
+        <button type="button" class="option-btn" onclick="selectOption('sector','tecnologia',this)">
           <span class="icon">💻</span>
           <div><div class="label">Tecnología y Servicios</div><div class="sublabel">Software, IT, servicios digitales</div></div>
         </button>
-        <button class="option-btn" onclick="selectOption('sector','otro',this)">
+        <button type="button" class="option-btn" onclick="selectOption('sector','otros',this)">
           <span class="icon">🏢</span>
           <div><div class="label">Otro sector</div><div class="sublabel">Entretenimiento, turismo, otros</div></div>
         </button>
       </div>
       <div class="nav-buttons">
-        <button class="btn btn-secondary" onclick="goBack()">← Atrás</button>
-        <button class="btn btn-primary" onclick="nextStep()" id="next1" disabled>Siguiente →</button>
+        <button type="button" class="btn btn-secondary" onclick="goBack()">← Atrás</button>
+        <button type="button" class="btn btn-primary" onclick="nextStep()" id="next1" disabled>Siguiente →</button>
       </div>
     </div>
   </div>
@@ -1030,5 +1030,6 @@ function openWhatsApp() {
   
 </body>
 </html>
+
 
 
