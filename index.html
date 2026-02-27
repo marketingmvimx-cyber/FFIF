@@ -696,28 +696,24 @@
 </div>
 
 <script>
+
 const SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbw3cbk1z0Lf-YA4aXFTZ2LgeGbHvaLhFl2abOvvZtMm_2A6LJuty9z3kDpyeDUUBnP28A/exec";
 const SHEET_TOKEN = "MVI_LEADS_2026";
 
 async function sendLeadToSheet(leadData) {
-  const payload = { token: SHEET_TOKEN, ...leadData };
-
-  const response = await fetch(SHEET_ENDPOINT, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
+  const params = new URLSearchParams({
+    token: SHEET_TOKEN,
+    ...leadData
   });
 
-  const result = await response.json();
+  await fetch(SHEET_ENDPOINT, {
+    method: "POST",
+    mode: "no-cors",
+    body: params
+  });
 
-  if (!result.ok) throw new Error(result.error || "Error enviando lead");
   return true;
 }
-const answers = {
-  sector: null, unidades: null, empleados: null,
-  situacion: null, siniestros: [],
-  fname: '', lname: '', email: '', phone: '', brand: '', concern: ''
-};
 
 let currentStep = 0;
 
@@ -1008,3 +1004,4 @@ function openWhatsApp() {
 </script>
 </body>
 </html>
+
