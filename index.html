@@ -700,22 +700,45 @@
 const SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbw3cbk1z0Lf-YA4aXFTZ2LgeGbHvaLhFl2abOvvZtMm_2A6LJuty9z3kDpyeDUUBnP28A/exec";
 const SHEET_TOKEN = "MVI_LEADS_2026";
 
-async function sendLeadToSheet(leadData) {
-  const params = new URLSearchParams({
-    token: SHEET_TOKEN,
-    ...leadData
-  });
+function sendLeadToSheet(leadData) {
+  // Creamos un form invisible para evitar CORS
+  const form = document.createElement("form");
+  form.method = "POST";
+  form.action = SHEET_ENDPOINT;
+  form.target = "sheet_iframe"; // para no navegar fuera de tu página
 
-  await fetch(SHEET_ENDPOINT, {
-    method: "POST",
-    mode: "no-cors",
-    body: params
-  });
+  const addField = (name, value) => {
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = name;
+    input.value = value ?? "";
+    form.appendChild(input);
+  };
 
+  // Token
+  addField("token", SHEET_TOKEN);
+
+  // Campos
+  addField("nombre", leadData.nombre);
+  addField("apellido", leadData.apellido);
+  addField("email", leadData.email);
+  addField("telefono", leadData.telefono);
+  addField("marca", leadData.marca);
+  addField("sector", leadData.sector);
+  addField("unidades", leadData.unidades);
+  addField("empleados", leadData.empleados);
+  addField("situacion", leadData.situacion);
+  addField("siniestros", leadData.siniestros);
+  addField("score", leadData.score);
+  addField("resultados", leadData.resultados);
+
+  document.body.appendChild(form);
+  form.submit();
+  form.remove();
+
+  // Ojo: aquí no hay “respuesta” para leer, pero SÍ se guarda en Sheets
   return true;
 }
-
-let currentStep = 0;
 
 function startDiagnostico() {
   document.getElementById('introView').style.display = 'none';
@@ -1002,6 +1025,10 @@ function openWhatsApp() {
     URL.revokeObjectURL(url);
   }
 </script>
+
+<iframe name="sheet_iframe" style="display:none;"></iframe>
+  
 </body>
 </html>
+
 
